@@ -1,6 +1,6 @@
 # Guide de Sécurisation : Protéger un déploiement Rustdesk (Docker) avec CrowdSec
 
-Ce guide détaille la mise en place de CrowdSec sur un hôte Debian pour surveiller, détecter et bloquer en temps réel les attaques dirigées contre votre infrastructure Rustdes auto-hébergée sous Docker
+Ce guide détaille la mise en place de CrowdSec sur un hôte Debian pour surveiller, détecter et bloquer en temps réel les attaques dirigées contre votre infrastructure Rustdesk auto-hébergée sous Docker
 
 # Disclaimer
 Tutoriel rédigé à l'aide de Gemini puis revu + testé + corrigé par Rémi CONSTANTIN
@@ -25,14 +25,19 @@ Pour vérifier cela :
 cscli collections list
 ```
 
-4. Pour finir l'installation , je vous recommande vivement d'installer tout de suite le "Bouncer" iptables afin que CrowdSec puisse bannir automatiquement s'il détecte une activité suspecte
+4. Ajoutons une collection contre les scans de port
+```
+cscli collections install crowdsecurity/iptables
+```
+
+5. Pour finir l'installation , je vous recommande vivement d'installer tout de suite le "Bouncer" iptables afin que CrowdSec puisse bannir automatiquement s'il détecte une activité suspecte
 ```
 apt install crowdsec-firewall-bouncer-iptables -y
 ```
 
 ## Configuration
 
-Par défaut, le vigile ne regarde pas le trafic destiné à tes conteneurs. Il faut l'obliger à surveiller le réseau spécifique de RustDesk.
+Par défaut, le vigile ne regarde pas le trafic destiné à vos conteneurs. Il faut l'obliger à surveiller le réseau spécifique de RustDesk
 
 1. Ouvrez le fichier de configuration
 ```
@@ -55,6 +60,8 @@ ET
 ```
 systemctl restart docker
 ```
+
+Et c'est tout ce que nous pouvons faire pour la protection de notre instance avec CrowdSec
 
 ## Piste d'amélioration
 Ajouter cette machine au dashboard Crowdsec Web officiel
