@@ -198,11 +198,14 @@ Maintenant que vous avez un relais fonctionnel, il est très fortement recommand
 
 Voici quelques idées :
 
+**DMZ**
+Comme dit au début du tutoriel, l'idéal est de placer le serveur dans votre DMZ afin de préserver vos machines locales d'une éventuelle infection par déplacement latéral
+
 **Whitelist**  
 Comme dis plus tôt dans le tutoriel, essayez de filtrer l'accès au serveur en limitant les IP publiques autorisées à passer par les redirections de ports en y placant une whitelist (possible sur l'envirennement unifi d'Ubiquiti)
 
 **Firewall**  
-Afin d'éviter les déplacement horizontaux  provenant d'autres machines de la DMZ fermez le maximum de port avec un pare-feu. Il est d'ailleurs possible de faire la whitelist d'IP publique par ce biais si pas possible sur le routeur.
+Afin d'éviter les déplacement latéraux provenant d'autres machines de la DMZ fermez le maximum de port avec un pare-feu. Il est d'ailleurs possible de faire la whitelist d'IP publique par ce biais si pas possible sur le routeur.
 
 > [!caution]
 > N'utilisez pas de pare-feux directement sur le système de la machine (tel qu'UFW, IPtables, NFtables etc...) car Docker installe des règles de routages qui les bypassent.
