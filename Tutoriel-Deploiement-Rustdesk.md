@@ -164,7 +164,8 @@ Voici les avantages de l'installation :
 - `Key` : colle ta clé secrète (trouvée dans `/opt/rustdesk/data/id_ed25519.pub`)
 
 > [!warning]
-> Laisse les champs "Serveur Relais" et "Serveur API" complètement vides ! RustDesk est intelligent, il trouvera le port 21117 tout seul
+> 1. Laisse les champs "Serveur Relais" et "Serveur API" complètement vides ! RustDesk est intelligent, il trouvera le port 21117 tout seul
+> 2. Si ton PC controlé est derrière le même routeur que ton relais alors ouvre le flux et mets l'IP locale de ton relais ! Sinon ça ne marchera pas !
 
 5. Cliquez sur `Appliquer`, laissez le client ouvert et passez sur l'ordinateur contrôleur
 
@@ -178,11 +179,11 @@ La configuration est presque la même que pour le contrôlé à quelques détail
 3. Dans le client, cliquez sur les 3 petits points à côté de votre `ID` et allez dans `Réseau`
 
 4. Cliquez sur le bouton `Déverrouiller les paramètres réseau` et complétez les champs :
-- `ID` (ID Server) : tape ton IP publique fixe
+- `Serveur ID` : tape ton IP publique fixe
 - `Key` : colle ta clé secrète (trouvée dans `/opt/rustdesk/data/id_ed25519.pub`)
 
 ### Test de connexion
-1. Comme avec Teamviwer ou Anydesk, allez cherchez l'`ID` sur le client du pc contrôlé et entrez le sur le pc contrôleur
+1. Comme avec Teamviewer ou Anydesk, allez cherchez l'`ID` sur le client du pc contrôlé et entrez le sur le pc contrôleur
 
 2. Entrez le mot de passe affiché sur le client contrôlé  (vous pouvez le fixer dans les paramètres du client)
 
