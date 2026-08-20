@@ -10,7 +10,7 @@ L’intérêt de Rustdesk réside dans plusieurs points :
  Aucune interface web n'est ici configurée car nous partons du principe que vous n'avez que quelques machines à superviser. En effet, elle ne ferait qu'ajouter que de la surface d'attaque à votre instance, en plus de nécessiter un proxy.
 
 # Disclaimer
-Tutoriel rédigé + testé par Rémi CONSTANTIN
+Tutoriel rédigé + testé par Rémi CONSTANTIN et aidé par Gemini
 
 # Sources
 [Documentation officielle sur l'auto-hebergement Rustdesk](https://rustdesk.com/docs/en/self-host/)
