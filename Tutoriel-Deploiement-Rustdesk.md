@@ -1,13 +1,13 @@
-# Tutoriel Complet : Auto-herberger sa propre instance Rustdesk
+# Tutoriel Complet : Auto-héberger sa propre instance Rustdesk
 
 Ce guide permet de déployer un serveur Rustdesk sécurisé servant de relais afin de prendre la main sur un ordinateur distant.  
 
-L’intérêt de Rustdesk réside dans plusieurs points : 
-- Peut être auto-herbergé afin de ne pas dépendre d'un service tiers parfois payant tel que Teamviewer ou Anydesk
+L’intérêt de Rustdesk réside dans plusieurs points :
+- Peut être auto-hébergé afin de ne pas dépendre d'un service tiers, parfois payant, tel que TeamViewer ou AnyDesk
 - Compatible Linux, là où Google Remote Desktop ne l'est pas
-- Permet de n'utiliser qu'un client portable ou une interface web pour prendre la main (pratique si vous n'avez pas les droits administrateurs sur la machine pour prednre la main)
+- Permet de n'utiliser qu'un client portable ou une interface web pour prendre la main (pratique si vous n'avez pas les droits d'administrateur sur la machine pour prendre la main)
 
- Aucune interface web n'est ici configurée car nous partons du principe que vous n'avez que quelques machines à superviser. En effet, elle ne ferait qu'ajouter que de la surface d'attaque à votre instance, en plus de nécessiter un proxy.
+Aucune interface web n'est ici configurée car nous partons du principe que vous n'avez que quelques machines à superviser. En effet, elle ne ferait qu'ajouter de la surface d'attaque à votre infrastructure, en plus de nécessiter un proxy.
 
 # Disclaimer
 Tutoriel rédigé + testé par Rémi CONSTANTIN et aidé par Gemini
@@ -18,18 +18,18 @@ Tutoriel rédigé + testé par Rémi CONSTANTIN et aidé par Gemini
 ---
 
 # Prérequis
-- Une machine(de préférence Linux) avec un accès admin où il est possible d'installer Docker (pour l'installer sur Linux c'est [ICI](https://docs.docker.com/engine/install/))
+- Une machine (de préférence Linux) avec un accès administrateur où il est possible d'installer Docker (pour l'installer sur Linux c'est [ICI](https://docs.docker.com/engine/install/))
 - Avoir accès aux redirections de port sur son routeur
-- (Optionnel mais très recommandé) Placez votre machine dans une DMZ car nous allons l'exposer à internet
+- (Optionnel mais très recommandé) Placez votre machine dans une DMZ car nous allons l'exposer à Internet
 
 # Mise en place
-Nous verrons ici l'installation des services Rustdesk sur un LXC Debian 13 sur l’hyperviseur Proxmox. A vous d'adapter les manipulations à votre contexte technique.
+Nous verrons ici l'installation des services Rustdesk sur un LXC Debian 13 sur l’hyperviseur Proxmox. À vous d'adapter les manipulations à votre contexte technique.
 
 ## Installation Rustdesk
 
-1. Pour commencer, assurez vous d'avoir installer Docker sur vote machine en testant une commande (`docker ps` par exemple)
+1. Pour commencer, assurez-vous d'avoir installé Docker sur votre machine en testant une commande (`docker ps` par exemple)
 
-2. Créez vous un répertoire de travail où vous voulez
+2. Créez un répertoire de travail où vous le souhaitez
 ```
 mkdir /opt/rustdesk
 ```
@@ -104,19 +104,19 @@ services:
           memory: 256M
 ```
 
-3. Appliquez le docker compose
+4. Appliquez le docker compose
 ```
 docker compose up -d
 ```
 
-4. Vérifiez que les conteneurs sont montés
+5. Vérifiez que les conteneurs sont montés
 ```
 docker ps
 ```
 <img width="2518" height="253" alt="docker-ps_rustdesk" src="https://github.com/user-attachments/assets/253f508e-4585-4307-8855-75e8c19df17d" />  
 Nous avons bien les deux conteneurs `hbbs` et `hbbr` UP
 
-5. Récupérez votre clé qui vous permettra de vous connecter à vos machines et stockez la dans un endroit sécurisé (coffre à mot de passe comme Keepass par exemple)
+6. Récupérez votre clé qui vous permettra de vous connecter à vos machines et stockez la dans un endroit sécurisé (coffre à mot de passe comme Keepass par exemple)
 ```
 cat /opt/rustdesk/data/id_ed25519.pub
 ```
@@ -184,12 +184,12 @@ La configuration est presque la même que pour le contrôlé à quelques détail
 ### Test de connexion
 1. Comme avec Teamviwer ou Anydesk, allez cherchez l'`ID` sur le client du pc contrôlé et entrez le sur le pc contrôleur
 
-2. Entrez le mot de passe affiché sur le client contrôlé  (vous pouvez le fixer dans les paramères du client)
+2. Entrez le mot de passe affiché sur le client contrôlé  (vous pouvez le fixer dans les paramètres du client)
 
 Vous devriez maintenant avoir la main sur votre ordinateur ! 
 
 > [!warning]
-> Vous rencontrerez sans doute des problèmes d'affichage avec les distributions linux qui utilisent le serveur d'affichage `Wayland` (tel que Fedora KDE)
+> Vous rencontrerez sans doute des problèmes d'affichage avec les distributions Linux qui utilisent le serveur d'affichage `Wayland` (telles que Fedora KDE)
 
 ---
 
