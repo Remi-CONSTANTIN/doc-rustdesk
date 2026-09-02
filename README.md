@@ -1,13 +1,5 @@
 # doc-rustdesk
 
-## Contenu du dépôt
-
-- [`Tutoriel-Deploiement-Rustdesk.md`](./Tutoriel-Deploiement-Rustdesk.md)  
-  Guide complet pour installer et configurer un serveur RustDesk (ID + Relay) avec Docker, ouvrir les ports nécessaires, puis connecter un poste contrôlé et un poste contrôleur
-
-- [`crowdsec-rustdesk.md`](./crowdsec-rustdesk.md)  
-  Guide de sécurisation avec CrowdSec pour détecter et bloquer les attaques visant une infrastructure RustDesk exposée sur Internet
-
 ## Objectif
 Ce dépôt vise à fournir une base claire pour :
 - Auto-héberger un relais RustDesk via la méthode officielle recommandée (Docker) afin de ne pas dépendre d’un service tiers
