@@ -15,10 +15,12 @@ Ce dépôt vise à fournir une base claire pour :
 - Appliquer des mesures de hardening adaptées à une exposition Internet
 
 ## Parcours recommandé
-1. Suivre le tutoriel de déploiement [`crowdsec-rustdesk.md`](./crowdsec-rustdesk.md) 
-2. Valider la connectivité (ports, ID, clé publique)
-3. Appliquer les recommandations de sécurisation du tutoriel principal
-4. Suivre le tutoriel spécifique à CrowdSec pour renforcer la protection [`crowdsec-rustdesk.md`](./crowdsec-rustdesk.md)
+1. Suivre le tutoriel de déploiement  
+[`Tutoriel-Deploiement-Rustdesk`](Tutoriel-Deploiement-Rustdesk.md) 
+3. Suivre le tutoriel spécifique à CrowdSec pour renforcer la protection  
+[`crowdsec-rustdesk`](crowdsec-rustdesk.md)
+5. Mettez en place la mise à jours automatique  
+[`rustdesk_auto-update`](rustdesk_auto-update.md)
 
 ## Disclaimer
 - Même avec une bonne configuration / sécurisation d'un service exposé sur le web, vous ne serez pas immunisé contre toute intrusion. Toutes les mesures prises visent à réduire au maximum les risques
